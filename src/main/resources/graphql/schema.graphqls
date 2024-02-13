@@ -1,0 +1,46 @@
+scalar Long
+
+input UserRequest {
+    id: ID
+    firstname: String
+    lastname: String
+    phoneNumber: Long
+    password: String
+}
+
+input OtpRequest {
+    phoneNumber: Long
+    oneTimePassword: Int
+}
+
+input AuthRequest {
+    phoneNumber: Long
+    password: String
+}
+
+type AuthResponse {
+    token: String
+}
+
+type UserResponse {
+    id: ID
+    firstname: String
+    lastname: String
+    phoneNumber: String
+}
+
+type Query {
+    login(input: AuthRequest): AuthResponse
+    verifyOtp(input: OtpRequest): AuthResponse
+    userById(userId: ID): UserResponse
+    userByPhoneNumber(phoneNumber: String): UserResponse
+}
+
+type Mutation {
+    register(input: UserRequest): AuthResponse
+    createUser(input: UserRequest): UserResponse
+    updateUser(input: UserRequest): UserResponse
+    deleteUser(userId: ID): Boolean
+}
+
+
