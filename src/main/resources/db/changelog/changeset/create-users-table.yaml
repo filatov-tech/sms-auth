@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1"
+      author: filatov-tech
+      changes:
+        - createTable:
+            tableName: USERS
+            columns:
+              - column:
+                  name: id
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: firstname
+                  type: varchar(255)
+              - column:
+                  name: lastname
+                  type: varchar(255)
+              - column:
+                  name: phone_number
+                  type: bigint
+              - column:
+                  name: password
+                  type: varchar(255)
+              - column:
+                  name: role
+                  type: varchar(30)
