@@ -14,6 +14,9 @@ import tech.filatov.auth.user.dto.UserRequest
 class AuthenticationController (var authenticationService: AuthenticationService) {
 
     @QueryMapping
+    fun checkPhoneNumber(@Argument phoneNumber: Long): Boolean = authenticationService.checkPhoneNumber(phoneNumber)
+
+    @QueryMapping
     fun login(@Argument input: AuthRequest): AuthResponse = authenticationService.login(input)
 
     @MutationMapping

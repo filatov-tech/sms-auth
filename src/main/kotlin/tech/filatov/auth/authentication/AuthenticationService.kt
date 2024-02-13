@@ -40,4 +40,9 @@ class AuthenticationService (
         oneTimePasswordService.verify(otpRequest.oneTimePassword)
         return AuthResponse(jwtService.generateToken(user))
     }
+
+    fun checkPhoneNumber(phoneNumber: Long): Boolean {
+        userService.getUserByPhoneNumber(phoneNumber)
+        return true
+    }
 }
